@@ -17,7 +17,6 @@ jobs:
       - name: build project
         run: npm run build
         env:
-          APP_MODE: ${{ secrets.APP_MODE }}
           API_BASE_URL_SERVER: https://habizy.com/api
           API_BASE_URL_BROWSER: https://habizy.com/api
 
@@ -58,8 +57,7 @@ jobs:
             kubectl delete secret front-envs --ignore-not-found=true
             kubectl create secret generic front-envs \
             --from-literal NODE_ENV=${{ secrets.NODE_ENV }} \
-            --from-literal PREPROD_PUBLIC_APP_URL=${{ secrets.PREPROD_PUBLIC_APP_URL }} \
-            --from-literal API_BASE_URL_SERVER=${{ secrets.API_BASE_URL_SERVER }}
+            --from-literal PREPROD_PUBLIC_APP_URL=${{ secrets.PREPROD_PUBLIC_APP_URL }}
             kubectl apply -f /srv/k8s/front
             minikube addons enable ingress
             echo y | docker exec -i minikube docker system prune -a --volumes
