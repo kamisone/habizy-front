@@ -1,0 +1,106 @@
+.hero {
+  padding-block: 5rem;
+  background: var(--slate-50);
+}
+
+.hero .container { display: flex; flex-direction: column; gap: var(--space-4); }
+.heroTitle { color: var(--slate-900); margin-top: var(--space-4); }
+.heroLead { max-width: 36rem; color: var(--slate-600); }
+
+.content { background: #fff; }
+
+/* Featured */
+.featured {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  background: linear-gradient(135deg, var(--green-50), rgba(255,255,255,0.5));
+  border: 1.5px solid var(--green-100);
+  border-radius: var(--radius-2xl);
+  padding: var(--space-10);
+  margin-bottom: var(--space-12);
+  transition: box-shadow 0.2s;
+  color: inherit;
+}
+
+.featured:hover { box-shadow: var(--shadow-lg); }
+
+.featuredBadge { display: flex; align-items: center; gap: var(--space-3); }
+.featuredCategory {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-primary);
+}
+
+.featuredLabel {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--slate-500);
+  padding: 0.125rem 0.5rem;
+  background: rgba(255,255,255,0.7);
+  border-radius: 2rem;
+  border: 1px solid var(--color-border);
+}
+
+.featuredTitle { color: var(--slate-900); max-width: 44rem; }
+.featuredDesc { font-size: 1.0625rem; color: var(--slate-600); line-height: 1.65; max-width: 44rem; }
+.featuredMeta { display: flex; gap: var(--space-4); font-size: 0.875rem; color: var(--slate-500); }
+
+/* Grid */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-6);
+}
+
+.card {
+  background: var(--slate-50);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  transition: transform 0.2s, box-shadow 0.2s;
+  color: inherit;
+}
+
+.card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+
+.cardCategory {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-primary);
+}
+
+.cardTitle {
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: var(--slate-900);
+  line-height: 1.4;
+  margin: 0;
+}
+
+.cardDesc {
+  font-size: 0.9375rem;
+  color: var(--slate-600);
+  line-height: 1.6;
+  flex: 1;
+}
+
+.cardMeta {
+  display: flex;
+  gap: var(--space-4);
+  font-size: 0.8125rem;
+  color: var(--slate-500);
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--color-border);
+}
+
+@media (max-width: 900px) {
+  .grid { grid-template-columns: 1fr; max-width: 36rem; }
+}

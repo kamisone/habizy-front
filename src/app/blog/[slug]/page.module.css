@@ -1,0 +1,118 @@
+.breadcrumb {
+  background: var(--slate-50);
+  border-bottom: 1px solid var(--color-border);
+  padding-block: var(--space-3);
+}
+
+.breadcrumbLink {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  transition: opacity 0.15s;
+}
+
+.breadcrumbLink:hover { opacity: 0.75; }
+
+.header {
+  padding-block: 4rem;
+  background: var(--slate-50);
+}
+
+.header .container { display: flex; flex-direction: column; gap: var(--space-4); }
+
+.category {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-primary);
+}
+
+.title { color: var(--slate-900); max-width: 44rem; }
+.desc { max-width: 44rem; color: var(--slate-600); }
+
+.meta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-size: 0.875rem;
+  color: var(--slate-500);
+}
+
+.body { background: #fff; }
+.body .container { max-width: 44rem; }
+
+/* Article prose */
+.prose {
+  font-size: 1.0625rem;
+  line-height: 1.8;
+  color: var(--slate-700);
+}
+
+.prose :global(h2) {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--slate-900);
+  margin-block: 2.5rem 1rem;
+  letter-spacing: -0.02em;
+}
+
+.prose :global(h3) {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--slate-800);
+  margin-block: 2rem 0.75rem;
+}
+
+.prose :global(p) {
+  margin-block: 0 1.25rem;
+}
+
+.prose :global(ul) {
+  list-style: none;
+  padding: 0;
+  margin-block: 0 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.prose :global(li) {
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.prose :global(li)::before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+.prose :global(strong) { color: var(--slate-900); font-weight: 700; }
+
+/* CTA */
+.cta {
+  background: var(--slate-50);
+  border-top: 1px solid var(--color-border);
+  padding-block: 4rem;
+}
+
+.cta .container { display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-3); }
+
+.ctaTitle { color: var(--slate-900); }
+.ctaDesc { color: var(--slate-600); font-size: 0.9375rem; }
+.ctaBtns { display: flex; gap: var(--space-3); margin-top: var(--space-2); }
+
+.ctaBtn {
+  padding: 0.75rem 1.5rem;
+  background: var(--gradient-brand);
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.9375rem;
+  border-radius: var(--radius-full);
+  transition: opacity 0.15s;
+}
+
+.ctaBtn:hover { opacity: 0.9; }

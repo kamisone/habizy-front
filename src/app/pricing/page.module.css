@@ -1,0 +1,135 @@
+.hero {
+  padding-block: 5rem;
+  background: var(--slate-50);
+  text-align: center;
+}
+
+.hero .container { display: flex; flex-direction: column; align-items: center; gap: var(--space-4); }
+.heroTitle { color: var(--slate-900); }
+.heroLead { max-width: 36rem; color: var(--slate-600); }
+
+.plans { background: #fff; }
+
+.plansGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-8);
+  max-width: 56rem;
+  margin-inline: auto;
+}
+
+.planCard {
+  border-radius: var(--radius-2xl);
+  padding: var(--space-10);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  border: 1.5px solid var(--color-border);
+}
+
+.planFree { background: #fff; }
+.planPro { background: var(--slate-50); }
+
+.planHeader { display: flex; flex-direction: column; gap: var(--space-3); }
+
+.planName { font-size: 1.5rem; font-weight: 800; color: var(--slate-900); margin: 0; }
+
+.planPrice {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-2);
+}
+
+.planPrice strong {
+  font-size: 3rem;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  color: var(--color-primary);
+}
+
+.planPrice span { font-size: 0.9375rem; color: var(--slate-500); }
+
+.planPro .planPrice strong { color: var(--slate-400); }
+
+.planDesc { font-size: 0.9375rem; color: var(--slate-600); line-height: 1.6; }
+
+.badgeSoon { background: var(--slate-100); color: var(--slate-600); }
+
+.planFeatures {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  flex: 1;
+}
+
+.planFeature {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-size: 0.9375rem;
+  color: var(--slate-700);
+}
+
+.planFeatureMuted { color: var(--slate-500); }
+
+.check { color: var(--color-primary); font-weight: 700; flex-shrink: 0; font-size: 0.875rem; }
+.checkMuted { color: var(--slate-400); font-weight: 700; flex-shrink: 0; font-size: 0.875rem; }
+
+.planCtas { display: flex; gap: var(--space-3); flex-wrap: wrap; }
+
+.ctaPrimary {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  background: var(--gradient-brand);
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.9375rem;
+  border-radius: var(--radius-full);
+  text-align: center;
+  transition: opacity 0.15s;
+}
+
+.ctaPrimary:hover { opacity: 0.9; }
+
+.ctaOutline {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1.5px solid var(--slate-300);
+  color: var(--slate-700);
+  font-weight: 700;
+  font-size: 0.9375rem;
+  border-radius: var(--radius-full);
+  text-align: center;
+  transition: border-color 0.15s, color 0.15s;
+}
+
+.ctaOutline:hover { border-color: var(--slate-500); color: var(--slate-900); }
+
+/* FAQ */
+.faqSection { background: var(--slate-50); }
+.faqTitle { text-align: center; margin-bottom: var(--space-12); color: var(--slate-900); }
+
+.faqList {
+  max-width: 44rem;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.faqItem {
+  padding-block: var(--space-6);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.faqItem:first-child { border-top: 1px solid var(--color-border); }
+
+.faqQ { font-size: 1rem; font-weight: 700; color: var(--slate-900); margin-bottom: var(--space-2); }
+.faqA { font-size: 0.9375rem; color: var(--slate-600); line-height: 1.7; margin: 0; }
+
+@media (max-width: 700px) {
+  .plansGrid { grid-template-columns: 1fr; max-width: 28rem; }
+}

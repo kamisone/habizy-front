@@ -1,0 +1,98 @@
+.hero {
+  padding-block: 5rem;
+  background: var(--slate-50);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.hero .container { display: flex; flex-direction: column; gap: var(--space-4); }
+
+.heroTitle {
+  margin-top: var(--space-4);
+  color: var(--slate-900);
+  max-width: 44rem;
+}
+
+.heroLead { max-width: 40rem; color: var(--slate-600); }
+
+.group:nth-child(odd) { background: #fff; }
+.group:nth-child(even) { background: var(--slate-50); }
+
+.groupHeader { margin-bottom: var(--space-12); }
+
+.color-green { color: var(--color-primary); }
+.color-orange { color: #EA580C; }
+.color-purple { color: #7C3AED; }
+
+.featuresGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+  gap: var(--space-6);
+}
+
+.featureCard {
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-8);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  transition: box-shadow 0.2s;
+}
+
+.group:nth-child(even) .featureCard { background: #fff; }
+
+.featureCard:hover { box-shadow: var(--shadow-lg); }
+
+.featureEmoji { font-size: 2rem; line-height: 1; }
+
+.featureTitle { color: var(--slate-900); font-size: 1.0625rem; margin: 0; }
+.featureDesc { color: var(--slate-600); font-size: 0.9375rem; line-height: 1.65; }
+
+.featureList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  border-top: 1px solid var(--color-border);
+  padding-top: var(--space-4);
+  margin-top: auto;
+}
+
+.featureItem {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: 0.875rem;
+  color: var(--slate-600);
+}
+
+.featureCheck { color: var(--color-primary); font-weight: 700; flex-shrink: 0; }
+
+.cta {
+  background: var(--gradient-brand);
+  padding-block: 5rem;
+  text-align: center;
+}
+
+.ctaTitle { color: #fff; }
+.ctaDesc { color: rgba(255,255,255,0.85); font-size: 1.0625rem; margin-block: var(--space-4) var(--space-8); }
+
+.ctaBtns { display: flex; gap: var(--space-4); justify-content: center; flex-wrap: wrap; }
+
+.ctaBtn {
+  padding: 0.875rem 2rem;
+  background: rgba(255,255,255,0.15);
+  border: 1.5px solid rgba(255,255,255,0.4);
+  border-radius: var(--radius-full);
+  color: #fff;
+  font-weight: 700;
+  font-size: 1rem;
+  transition: background 0.15s;
+}
+
+.ctaBtn:hover { background: rgba(255,255,255,0.25); }

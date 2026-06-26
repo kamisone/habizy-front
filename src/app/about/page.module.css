@@ -1,0 +1,105 @@
+.hero {
+  padding-block: 5rem;
+  background: var(--slate-50);
+}
+
+.hero .container { display: flex; flex-direction: column; gap: var(--space-4); }
+.heroTitle { color: var(--slate-900); margin-top: var(--space-4); }
+.heroLead { max-width: 40rem; color: var(--slate-600); }
+
+.story { background: #fff; }
+
+.storyGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-16);
+  align-items: start;
+}
+
+.storyContent {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.storyContent p {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--slate-700);
+}
+
+.storyStat {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  padding: var(--space-8);
+  background: var(--slate-50);
+  border-radius: var(--radius-2xl);
+  border: 1px solid var(--color-border);
+}
+
+.bigStat { display: flex; flex-direction: column; gap: var(--space-1); }
+
+.bigStatValue {
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  background: var(--gradient-brand);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+}
+
+.bigStatLabel { font-size: 0.9375rem; color: var(--slate-600); line-height: 1.5; }
+
+.valuesSection { background: var(--slate-50); }
+.valuesTitle { text-align: center; margin-bottom: var(--space-12); color: var(--slate-900); }
+
+.valuesGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-6);
+}
+
+.valueCard {
+  background: #fff;
+  border-radius: var(--radius-xl);
+  padding: var(--space-8);
+  border: 1px solid var(--color-border);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  text-align: center;
+  align-items: center;
+}
+
+.valueIcon { font-size: 2rem; line-height: 1; }
+.valueTitle { color: var(--slate-900); font-size: 1rem; margin: 0; }
+.valueDesc { font-size: 0.9375rem; color: var(--slate-600); line-height: 1.6; }
+
+.contactSection { background: #fff; }
+.contactInner { text-align: center; max-width: 36rem; margin-inline: auto; }
+.contactDesc { color: var(--slate-600); margin-block: var(--space-4) var(--space-8); }
+
+.contactBtn {
+  display: inline-flex;
+  padding: 0.875rem 2rem;
+  background: var(--gradient-brand);
+  color: #fff;
+  font-weight: 700;
+  font-size: 1rem;
+  border-radius: var(--radius-full);
+  transition: opacity 0.15s;
+}
+
+.contactBtn:hover { opacity: 0.9; }
+
+@media (max-width: 900px) {
+  .storyGrid { grid-template-columns: 1fr; }
+  .valuesGrid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 540px) {
+  .valuesGrid { grid-template-columns: 1fr; }
+}
