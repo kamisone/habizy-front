@@ -36,8 +36,8 @@ function HeroSection() {
           <span className="badge">✦ Disponible sur iOS &amp; Android</span>
         </div>
         <h1 className={`h1 ${styles.heroTitle}`}>
-          Votre coloc,<br />
-          <span className={styles.heroGradient}>enfin organisée.</span>
+          Merci<br />
+          <span className={styles.heroGradient}>Karam</span>
         </h1>
         <p className={`lead ${styles.heroLead}`}>
           Habizy centralise la gestion de votre colocation : rotation des courses,
