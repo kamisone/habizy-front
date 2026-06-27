@@ -23,6 +23,22 @@
   color: #fff;
 }
 
+.logoImg {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+  flex-shrink: 0;
+  display: block;
+  filter: drop-shadow(0 0 8px rgba(15, 209, 216, 0.3));
+}
+
+.logoWordmark {
+  background: linear-gradient(90deg, #3FC798 0%, #0FD1D8 28%, #F94B80 65%, #B03897 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
 .tagline {
   font-size: 0.9375rem;
   line-height: 1.6;

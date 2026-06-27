@@ -24,12 +24,15 @@ export const metadata: Metadata = {
     siteName: siteConfig.name,
     title: `${siteConfig.name} — ${siteConfig.tagline}`,
     description: siteConfig.description,
+    images: [{ url: "/og-image.png", width: 1024, height: 1024, alt: siteConfig.name }],
   },
   twitter: {
     card: "summary_large_image",
     title: `${siteConfig.name} — ${siteConfig.tagline}`,
     description: siteConfig.description,
+    images: ["/og-image.png"],
   },
+  manifest: "/manifest.json",
   robots: { index: true, follow: true },
   alternates: { canonical: siteConfig.url },
 };
