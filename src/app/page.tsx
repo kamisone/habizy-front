@@ -3,6 +3,7 @@ import Link from "next/link";
 import { siteConfig } from "@/lib/site";
 import { getAllPosts, formatDate } from "@/lib/posts";
 import styles from "./page.module.css";
+import { ScreenshotsCarousel } from "./ScreenshotsCarousel";
 
 export const metadata: Metadata = {
   title: `${siteConfig.name} — ${siteConfig.tagline}`,
@@ -221,38 +222,8 @@ function ScreenshotsSection() {
           <h2 className="h2">Une interface pensée pour la coloc</h2>
           <p className="lead">Intuitive, rapide et agréable à utiliser au quotidien.</p>
         </div>
-        <div className={styles.screenshotsGrid}>
-          {[
-            { label: "Accueil", color: "#10B981" },
-            { label: "Les courses", color: "#F97316" },
-            { label: "Ménage", color: "#8B5CF6" },
-            { label: "Dépenses", color: "#3B82F6" },
-          ].map((s) => (
-            <div key={s.label} className={styles.screenshotPhone}>
-              <div className={styles.phoneMockSmall} style={{ "--phone-color": s.color } as React.CSSProperties}>
-                <div className={styles.phoneMockScreen}>
-                  <div className={styles.mockHeader} style={{ background: s.color }}>
-                    <div className={styles.mockDot} />
-                    <div className={styles.mockTitle}>{s.label}</div>
-                  </div>
-                  <div className={styles.mockContent}>
-                    {[...Array(4)].map((_, i) => (
-                      <div key={i} className={styles.mockRow}>
-                        <div className={styles.mockAvatar} style={{ background: s.color + "33" }} />
-                        <div className={styles.mockLines}>
-                          <div className={styles.mockLine} style={{ width: `${60 + i * 10}%` }} />
-                          <div className={styles.mockLineShort} />
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-              <p className={styles.screenshotLabel}>{s.label}</p>
-            </div>
-          ))}
-        </div>
       </div>
+      <ScreenshotsCarousel />
     </section>
   );
 }
