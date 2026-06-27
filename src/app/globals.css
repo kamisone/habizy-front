@@ -109,6 +109,18 @@ ul, ol { list-style: none; }
 
 .section { padding-block: var(--space-24); }
 
+/* ── Responsive base ────────────────────────────────────────────────────── */
+@media (max-width: 860px) {
+  .section { padding-block: var(--space-16); }
+}
+
+@media (max-width: 600px) {
+  .section { padding-block: var(--space-12); }
+  .container { padding-inline: var(--space-4); }
+  .h2 { font-size: clamp(1.5rem, 6vw, 2rem); }
+  .lead { font-size: 1rem; }
+}
+
 /* ── Badge ──────────────────────────────────────────────────────────────── */
 .badge {
   display: inline-flex;

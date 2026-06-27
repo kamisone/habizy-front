@@ -31,39 +31,42 @@ export default function HomePage() {
 function HeroSection() {
   return (
     <section className={styles.hero}>
-      <div className={`container ${styles.heroInner}`}>
-        <div className={styles.heroBadge}>
-          <span className="badge">✦ Disponible sur iOS &amp; Android</span>
-        </div>
-        <h1 className={`h1 ${styles.heroTitle}`}>
-          Votre coloc,<br />
-          <span className={styles.heroGradient}>enfin organisée.</span>
+      <div className={styles.heroOverlay} />
+      <div className={styles.heroContent}>
+        <p className={styles.heroBadge}>
+          <span className={styles.heroBadgeStar}>✦</span>
+          DISPONIBLE SUR IOS &amp; ANDROID
+        </p>
+
+        <h1 className={styles.heroTitle}>
+          VOTRE COLOC,
+          <span className={styles.heroLine2}>
+            ENFIN{" "}
+            <span className={styles.heroPill}>
+              <em>ORGANISÉE</em>
+            </span>
+          </span>
         </h1>
-        <p className={`lead ${styles.heroLead}`}>
+
+        <p className={styles.heroSubtitle}>
           Habizy centralise la gestion de votre colocation : rotation des courses,
           dépenses communes, ménage, liste partagée et signalements — le tout dans
           une seule app gratuite.
         </p>
+
         <div className={styles.heroCtas}>
-          <a href={siteConfig.appStoreUrl} className={styles.ctaPrimary}>
+          <a href={siteConfig.appStoreUrl} className={styles.storeBtn}>
             <AppleIcon />
             App Store
           </a>
-          <a href={siteConfig.playStoreUrl} className={styles.ctaSecondary}>
+          <a href={siteConfig.playStoreUrl} className={styles.storeBtn}>
             <PlayIcon />
-            Google Play
+            Play Store
           </a>
         </div>
+
         <p className={styles.heroNote}>Gratuit · Sans carte bancaire · iOS &amp; Android</p>
       </div>
-
-      {/* Phone mockup */}
-      <div className={styles.heroPhone}>
-        <PhoneMockup />
-      </div>
-
-      {/* Background decoration */}
-      <div className={styles.heroBg} aria-hidden />
     </section>
   );
 }
@@ -365,47 +368,6 @@ function DownloadSection() {
         </div>
       </div>
     </section>
-  );
-}
-
-/* ── Phone mockup (hero) ────────────────────────────────────────────────── */
-function PhoneMockup() {
-  return (
-    <div className={styles.phoneOuter}>
-      <div className={styles.phoneFrame}>
-        <div className={styles.phoneNotch} />
-        <div className={styles.phoneScreen}>
-          {/* Status bar */}
-          <div className={styles.phoneStatus}>
-            <span>9:41</span>
-            <span>●●●</span>
-          </div>
-          {/* App UI mock */}
-          <div className={styles.mockAppHeader}>
-            <div>
-              <div className={styles.mockGreeting}>Bonjour,</div>
-              <div className={styles.mockName}>Camille 👋</div>
-            </div>
-            <div className={styles.mockBell} />
-          </div>
-          <div className={styles.mockCard}>
-            <div className={styles.mockCardLabel}>Dépenses de la coloc</div>
-            <div className={styles.mockCardValue}>1 248,50 €</div>
-            <div className={styles.mockCardSub}>4 colocataires</div>
-          </div>
-          <div className={styles.mockCoursesCard}>
-            <div className={styles.mockCoursesHeader}>
-              <div className={styles.mockCoursesIcon} />
-              <span>Les courses</span>
-            </div>
-            <div className={styles.mockTurnPill}>C&apos;est ton tour ! 🛒</div>
-            <div className={styles.mockItem}><span>🥛 Lait</span><span>×2</span></div>
-            <div className={styles.mockItem}><span>🍞 Pain</span><span>×1</span></div>
-            <div className={styles.mockItem}><span>🧴 Gel douche</span><span>×1</span></div>
-          </div>
-        </div>
-      </div>
-    </div>
   );
 }
 
