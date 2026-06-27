@@ -541,6 +541,7 @@
   .statValue    { font-size: 1.75rem; }
   .screenshotsScroll { padding-inline: var(--space-5); }
   .phoneMockSmall  { width: 150px; }
+  .carouselBtn     { display: none; }
   .sectionHeader   { margin-bottom: var(--space-8); }
   .sectionHeaderRow { gap: var(--space-2); }
 
