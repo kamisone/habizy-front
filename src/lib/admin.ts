@@ -1,7 +1,6 @@
 import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
-
-const API = process.env.API_BASE_URL_SERVER ?? 'http://127.0.0.1:4000';
+import { getApiUrl } from '@/lib/api-url';
 
 export async function getAdminToken(): Promise<string> {
   const store = await cookies();
@@ -12,7 +11,7 @@ export async function getAdminToken(): Promise<string> {
 
 export async function adminFetch<T>(path: string, init?: RequestInit): Promise<T> {
   const token = await getAdminToken();
-  const res = await fetch(`${API}${path}`, {
+  const res = await fetch(`${getApiUrl()}${path}`, {
     ...init,
     cache: 'no-store',
     headers: {

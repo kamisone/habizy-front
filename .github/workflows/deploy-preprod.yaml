@@ -17,8 +17,9 @@ jobs:
       - name: build project
         run: npm run build
         env:
-          API_BASE_URL_SERVER: https://habizy.com/api
+          API_BASE_URL_SERVER: http://api-cluster-ip-service.default.svc.cluster.local:3000
           API_BASE_URL_BROWSER: https://habizy.com/api
+          NEXT_API_BASE_URL_BROWSER: https://habizy.com/next-api
 
 
       - name: Log in to docker hub registry

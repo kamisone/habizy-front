@@ -4,29 +4,40 @@ import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
 import { revalidatePath } from 'next/cache';
 import { adminFetch } from '@/lib/admin';
-
-const API = process.env.API_BASE_URL_SERVER ?? 'http://127.0.0.1:4000';
+import { getApiUrl } from '@/lib/api-url';
 
 // ─── Auth ────────────────────────────────────────────────────────────────────
 export async function loginAction(_prev: { error?: string } | null, formData: FormData) {
   const email = formData.get('email') as string;
   const password = formData.get('password') as string;
 
-  const loginRes = await fetch(`${API}/auth/login`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ email, password }),
-    cache: 'no-store',
-  });
+  const api = getApiUrl();
+
+  let loginRes: Response;
+  try {
+    loginRes = await fetch(`${api}/auth/login`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email, password }),
+      cache: 'no-store',
+    });
+  } catch {
+    return { error: 'Service indisponible, veuillez réessayer' };
+  }
 
   if (!loginRes.ok) return { error: 'Identifiants incorrects' };
 
   const { accessToken } = await loginRes.json();
 
-  const meRes = await fetch(`${API}/auth/me`, {
-    headers: { Authorization: `Bearer ${accessToken}` },
-    cache: 'no-store',
-  });
+  let meRes: Response;
+  try {
+    meRes = await fetch(`${api}/auth/me`, {
+      headers: { Authorization: `Bearer ${accessToken}` },
+      cache: 'no-store',
+    });
+  } catch {
+    return { error: 'Impossible de vérifier le compte' };
+  }
 
   if (!meRes.ok) return { error: 'Impossible de vérifier le compte' };
 
