@@ -8,27 +8,34 @@ export const metadata = { title: 'Utilisateurs' };
 type User = {
   id: string; name: string; email: string; colorHex: string; initial: string;
   isAdmin: boolean; isSuperAdmin: boolean; profileCompleted: boolean;
-  suspendedAt: string | null; createdAt: string;
+  suspendedAt: string | null; anonymizedAt: string | null; createdAt: string;
   colocation: { id: string; name: string } | null;
 };
+
+type Colocation = { id: string; name: string };
 
 export default async function UsersPage({
   searchParams,
 }: {
-  searchParams: Promise<{ search?: string; role?: string; status?: string }>;
+  searchParams: Promise<{ search?: string; role?: string; status?: string; colocationId?: string }>;
 }) {
   const params = await searchParams;
   const search = params.search ?? '';
   const role = (params.role ?? '') as 'admin' | 'super_admin' | 'member' | '';
   const status = (params.status ?? '') as 'active' | 'suspended' | '';
+  const colocationId = params.colocationId ?? '';
 
   const qs = new URLSearchParams();
   if (search) qs.set('search', search);
   if (role) qs.set('role', role);
   if (status) qs.set('status', status);
+  if (colocationId) qs.set('colocationId', colocationId);
 
-  const users = await adminFetch<User[]>(`/super-admin/users?${qs}`);
-  const activeCount = users.filter(u => !u.suspendedAt).length;
+  const [users, colocations] = await Promise.all([
+    adminFetch<User[]>(`/super-admin/users?${qs}`),
+    adminFetch<Colocation[]>('/super-admin/colocations'),
+  ]);
+  const activeCount = users.filter(u => !u.suspendedAt && !u.anonymizedAt).length;
   const suspendedCount = users.filter(u => !!u.suspendedAt).length;
 
   return (
@@ -69,10 +76,19 @@ export default async function UsersPage({
             <option value="suspended">Suspendus</option>
           </select>
         </div>
+        <div className={styles.filterGroup}>
+          <label className={styles.filterLabel}>Colocation</label>
+          <select name="colocationId" defaultValue={colocationId} className={styles.filterSelect}>
+            <option value="">Toutes</option>
+            {colocations.map((c) => (
+              <option key={c.id} value={c.id}>{c.name}</option>
+            ))}
+          </select>
+        </div>
         <button type="submit" className={`${styles.btn} ${styles.btnOutline} ${styles.btnSm}`}>
           Filtrer
         </button>
-        {(search || role || status) && (
+        {(search || role || status || colocationId) && (
           <a href="/admin/users" className={`${styles.btn} ${styles.btnOutline} ${styles.btnSm}`}>
             Réinitialiser
           </a>
@@ -136,13 +152,15 @@ export default async function UsersPage({
                     : <span className={styles.cellMuted}>—</span>}
                 </td>
                 <td>
-                  {u.suspendedAt
+                  {u.anonymizedAt
+                    ? <span className={`${styles.badge} ${styles.badgeGray}`}>Anonymisé</span>
+                    : u.suspendedAt
                     ? <span className={`${styles.badge} ${styles.badgeRed}`}>Suspendu</span>
                     : <span className={`${styles.badge} ${styles.badgeGreen}`}>Actif</span>}
                 </td>
                 <td className={styles.cellMuted}>{fmtDate(u.createdAt)}</td>
                 <td>
-                  {!u.isSuperAdmin && (
+                  {!u.isSuperAdmin && !u.anonymizedAt && (
                     <div className={styles.rowActions}>
                       {u.suspendedAt ? (
                         <form action={activateUserAction.bind(null, u.id)}>
