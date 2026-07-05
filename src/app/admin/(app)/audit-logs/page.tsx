@@ -14,6 +14,7 @@ type PagedResult = { logs: AuditLog[]; total: number; page: number; pages: numbe
 
 const actionStyles: Record<string, string> = {
   DELETE_USER: styles.auditDelete,
+  ANONYMIZE_USER: styles.auditDelete,
   DELETE_COLOCATION: styles.auditDelete,
   SUSPEND_USER: styles.auditSuspend,
   SUSPEND_COLOCATION: styles.auditSuspend,
@@ -25,6 +26,7 @@ const actionStyles: Record<string, string> = {
 
 const actionLabels: Record<string, string> = {
   DELETE_USER: 'Supprimer utilisateur',
+  ANONYMIZE_USER: 'Anonymiser utilisateur',
   DELETE_COLOCATION: 'Supprimer colocation',
   SUSPEND_USER: 'Suspendre utilisateur',
   SUSPEND_COLOCATION: 'Suspendre colocation',
