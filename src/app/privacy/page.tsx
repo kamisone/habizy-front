@@ -76,9 +76,15 @@ export default function PrivacyPage() {
             <h2>6. Conservation des données</h2>
             <p>
               Vos données sont conservées tant que votre compte est actif. En cas de
-              suppression de compte, toutes vos données personnelles sont effacées sous
-              30 jours. Certaines données peuvent être conservées plus longtemps si la
-              loi l&apos;exige.
+              suppression de compte, vos informations personnelles (nom, email,
+              téléphone, identifiants de connexion) sont immédiatement anonymisées et
+              votre compte ne peut plus être utilisé pour vous connecter. Les dépenses,
+              signalements et tâches de ménage partagés avec votre colocation restent
+              visibles, sous forme anonyme, tant que la colocation reste active, afin
+              de préserver l&apos;historique commun de vos colocataires. Voir notre{" "}
+              <a href="/data-deletion">page dédiée à la suppression de compte</a> pour
+              le détail complet. Certaines données peuvent être conservées plus
+              longtemps si la loi l&apos;exige.
             </p>
 
             <h2>7. Vos droits (RGPD)</h2>

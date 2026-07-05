@@ -18,6 +18,7 @@ const supportLinks = [
 const legalLinks = [
   { href: "/privacy", label: "Politique de confidentialité" },
   { href: "/terms", label: "Conditions d'utilisation" },
+  { href: "/data-deletion", label: "Suppression du compte" },
 ];
 
 export default function Footer() {
