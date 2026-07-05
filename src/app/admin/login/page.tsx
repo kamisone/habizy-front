@@ -10,19 +10,23 @@ export default function AdminLoginPage() {
 
   return (
     <div className={styles.loginPage}>
+      <div className={styles.loginPageOverlay} />
+
       <div className={styles.loginCard}>
         <div className={styles.loginBrand}>
           <div className={styles.loginLogoMark}>
-            <Image src="/logo.png" alt="Habizy" width={42} height={42} />
+            <Image src="/logo.png" alt="Habizy" width={46} height={46} />
           </div>
-          <div className={styles.loginBrandText}>
-            <strong>Habizy</strong>
-            <span>Super Admin</span>
+          <div>
+            <span className={styles.loginBrandName}>Habizy</span>
+            <span className={styles.loginBrandBadge}>Super Admin</span>
           </div>
         </div>
 
+        <div className={styles.loginDivider} />
+
         <h1 className={styles.loginTitle}>Connexion</h1>
-        <p className={styles.loginSubtitle}>Accès réservé aux super-admins Habizy.</p>
+        <p className={styles.loginSubtitle}>Accès réservé aux administrateurs Habizy.</p>
 
         {state?.error && <div className={styles.loginError}>{state.error}</div>}
 
@@ -55,6 +59,8 @@ export default function AdminLoginPage() {
             {pending ? 'Connexion…' : 'Se connecter'}
           </button>
         </form>
+
+        <p className={styles.loginFooter}>Habizy &copy; {new Date().getFullYear()} · Accès restreint</p>
       </div>
     </div>
   );
